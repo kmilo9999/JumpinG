@@ -45,15 +45,12 @@ public class SpawnBlockTerrain : MonoBehaviour
         do
         {
             randomPosition = Random.Range(0, numBlocks);
-            //randomPosition = 0;
         }
         while (columsOnScreen[randomPosition]);
-
-        //var randomPosition = Random.Range(worldLowerRight.x, worldLowerLeft.x);
-        // rescale array position 0-numBlocks to viewport position 0-1
         
+        // mapping array index to world coordinates
         var worldPosition = 0.0f;
-        if (randomPosition % 2 == 0)
+        if (randomPosition % 2 == 0)    
         {
             worldPosition = randomPosition / 2;
         }
@@ -62,16 +59,10 @@ public class SpawnBlockTerrain : MonoBehaviour
             worldPosition = ((randomPosition - 1) / 2) + 0.5f;
         }
         
-        Debug.Log(randomPosition+" "+worldPosition);
-        //var blockPosition = new Vector3(currentPosition+0.25f, worldLowerRight.y + 0.25f, 0);
         var blockPosition = new Vector3(worldLowerRight.x + worldPosition + 0.25f, worldLowerRight.y + 0.25f, 0);
-        //currentPosition += 0.5f;
+        
         GameObject.Instantiate(terrainColumnPrefab, blockPosition, new Quaternion());
         columsOnScreen[randomPosition] = true;
-        //currentBlocks++;
-        //Debug.Log(currentBlocks);
-
-
-
+        
     }
 }
