@@ -6,7 +6,7 @@ using System.Linq;
 public class SpawnBlockTerrain : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] public GameObject terrainColumnPrefab;
+    [SerializeField] public GameObject[] terrainColumnPrefabs;
     private float currenCounterTime = 0;
     private Renderer renderComponent;
     private int numBlocks = 0;
@@ -41,7 +41,6 @@ public class SpawnBlockTerrain : MonoBehaviour
     private void createBlock()
     {
         var randomPosition = 0;
-
         do
         {
             randomPosition = Random.Range(0, numBlocks);
@@ -61,7 +60,8 @@ public class SpawnBlockTerrain : MonoBehaviour
         
         var blockPosition = new Vector3(worldLowerRight.x + worldPosition + 0.25f, worldLowerRight.y + 0.25f, 0);
         
-        GameObject.Instantiate(terrainColumnPrefab, blockPosition, new Quaternion());
+        var columnType = Random.Range(0, terrainColumnPrefabs.Length);
+        GameObject.Instantiate(terrainColumnPrefabs[columnType], blockPosition, new Quaternion());
         columsOnScreen[randomPosition] = true;
         
     }

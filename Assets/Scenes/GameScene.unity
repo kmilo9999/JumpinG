@@ -384,7 +384,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e1515c6ccf5774db7647574932f717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terrainColumnPrefab: {fileID: 4988901205929734349, guid: 9832b61296da2b14ba7f3bdce52182b4, type: 3}
+  terrainColumnPrefabs:
+  - {fileID: 4988901205929734349, guid: 9832b61296da2b14ba7f3bdce52182b4, type: 3}
+  - {fileID: 8757544914973907402, guid: 7b57a92f7bb5dee42aae601f3d590d36, type: 3}
+  - {fileID: 2625544894280937264, guid: c6a25a3bd57b6e14c8ef043fe2031510, type: 3}
 --- !u!1001 &3284874881141436937
 PrefabInstance:
   m_ObjectHideFlags: 0
